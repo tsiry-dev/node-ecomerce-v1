@@ -1,14 +1,11 @@
-import Product from "../models/product.js";
+// import Product from "../models/product.js";
 
 export const findAllProduct = (req, res, next) => {
-    Product.fetchAll()
-        .then(([rows, fieldData]) => {    
-            res.render('shop/product-list' , {
-                prods: rows,
-                path: '/',
-                docTitle: 'Products'
-            });
-        }).catch();
+    res.render('shop/product-list' , {
+        prods: [],
+        path: '/',
+        docTitle: 'Products'
+    });
 }
 
 

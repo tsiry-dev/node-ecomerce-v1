@@ -1,7 +1,21 @@
-import db from '../utils/database.js';
+import { DataTypes } from "sequelize"; 
+import sequelize from "../utils/database.js";
 
-export default class Blog{
-   findAll() {
-      return db.execute('SELECT * FROM blogs');
-   }
-}
+const Blog = sequelize.define('blog',{
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true,
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+    description: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+});
+
+export default Blog;

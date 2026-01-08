@@ -10,11 +10,16 @@ const app = express();
 const PORT = 3000;
 
 // const adminData = require('./routes/admin');
-import db from './utils/database.js';
+// import db from './utils/database.js';
+import sequelize from './utils/database.js';
+
 import adminRoutes from './routes/admin.js';
 import shopRoutes from './routes/shop.js';
-import blogRoutes from './routes/blog.js';
+// import blogRoutes from './routes/blog.js';
 import * as errorController from './controllers/error.controller.js';
+
+import Product from "./models/product.js";
+import Blog from './models/blog.js';
 
 // db.execute("SELECT * FROM products")
 //   .then(result => {
@@ -41,7 +46,7 @@ app.use(express.static(path.join(path.dirname(fileURLToPath(import.meta.url)), '
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
-app.use('/blog', blogRoutes);
+// app.use('/blog', blogRoutes);
 // app.use('/blog', blogRoutes.routes);
 
 
@@ -54,8 +59,17 @@ app.use(errorController.error404);
 //     });
 // });
 
-
-app.listen(PORT)
+sequelize
+  .sync({ alter: true }) // force la création
+  .then((result) => {
+    console.log(result);
+    app.listen(PORT, () =>
+      console.log(`Serveur lancé sur le port ${PORT}`)
+    );
+  })
+  .catch((err) => {
+    console.error("Erreur Sequelize :", err);
+  });
 
 // const server = http.createServer(app);
 
