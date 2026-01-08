@@ -1,0 +1,9 @@
+extends ./../layouts/main-layout
+
+
+block content
+    main
+      h2(style="text-align: center") Create a new product
+      form.form(action="/admin/add-product" method="POST")
+        input.form-input(type="text" name="title" placeholder="Product Title")
+        button.btn(type="submit") Add Product

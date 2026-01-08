@@ -1,0 +1,60 @@
+<style>
+    .error {
+       color: red;
+    }
+</style>
+<main>
+  <h2 style="text-align: center">Create a new product</h2>
+
+  <form class="form" action="/admin/add-product" method="POST">
+
+    <!-- TITLE -->
+    <input
+      class="form-input <%= errors.title ? 'invalid' : '' %>"
+      type="text"
+      name="title"
+      placeholder="Product Title"
+      value="<%= oldInput.title %>"
+    >
+    <% if (errors.title) { %>
+      <div class="error"><%= errors.title %></div>
+    <% } %>
+
+    <!-- DESCRIPTION -->
+    <textarea
+      class="form-input <%= errors.description ? 'invalid' : '' %>"
+      name="description"
+      placeholder="Description"
+    ><%= oldInput.description %></textarea>
+    <% if (errors.description) { %>
+      <div class="error"><%= errors.description %></div>
+    <% } %>
+
+    <!-- PRICE -->
+    <input
+      class="form-input <%= errors.price ? 'invalid' : '' %>"
+      type="number"
+      name="price"
+      step="0.01"
+      placeholder="Product price"
+      value="<%= oldInput.price %>"
+    >
+    <% if (errors.price) { %>
+      <div class="error"><%= errors.price %></div>
+    <% } %>
+
+    <!-- IMAGE URL -->
+    <input
+      class="form-input <%= errors.imageUrl ? 'invalid' : '' %>"
+      type="text"
+      name="imageUrl"
+      placeholder="Image URL"
+      value="<%= oldInput.imageUrl %>"
+    >
+    <% if (errors.imageUrl) { %>
+      <div class="error"><%= errors.imageUrl %></div>
+    <% } %>
+
+    <button class="btn" type="submit">Add Product</button>
+  </form>
+</main>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node | <%= docTitle %></title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <% if (path !== '/blog/create' && path !== '/404') { %>
+        <header class="header">
+          <nav class="nav">
+            <ul class="nav-links">
+              <li>
+                <a href="/" class="nav-link <%= path == '/' ? 'active' : '' %>">Shop</a>
+              </li>
+              <li>
+                <a href="/admin/add-product" class="nav-link <%= path == '/admin/add-product' ? 'active' : '' %>">Add product</a>
+              </li>
+              <li>
+                <a href="/cart" class="nav-link <%= path == '/shop/cart' ? 'active' : '' %>">Cart</a>
+              </li>
+              <li>
+                <a href="/checkout" class="nav-link <%= path == '/blog' ? 'active' : '' %>">checkout</a>
+              </li>
+              <li>
+                <a href="/blog" class="nav-link <%= path == '/blog' ? 'active' : '' %>">Blog</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      <% } %>
+
+      <%- body %>
+
+    </div>
+  </body>
+</html>

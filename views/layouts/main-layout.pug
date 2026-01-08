@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Node | #{docTitle}
+        link(rel="stylesheet", href="/assets/css/style.css")
+    body 
+        div.container
+            if path !== '/blog/create' && path != '/404'
+                header.header 
+                    nav.nav 
+                        ul.nav-links 
+                            li 
+                                a.nav-link(href="/" class=(path == '/' ? 'active' : '')) Shop 
+                            li 
+                                a.nav-link(href="/admin/add-product" class=(path == '/admin/add-product' ? 'active' : '')) Add product
+                            li 
+                                a.nav-link(href="/blog" class=(path == '/blog' ? 'active' : '')) Blog 
+
+            
+            block content

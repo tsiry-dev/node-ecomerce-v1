@@ -1,0 +1,18 @@
+extends ./../layouts/main-layout
+
+block content
+    main
+        .blog-title 
+            h1 Blog
+            a(href="/blog/create")
+                button.btn-nav New blog &rarr;
+
+        if blogs.length > 0
+            .blog-lists 
+                each blog in blogs 
+                    .blog-item 
+                        h2.blog-title #{blog.title} 
+                        p.blog-desc #{blog.description}
+        
+        else
+            h2.blog-none No blog posts found!

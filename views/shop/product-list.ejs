@@ -1,0 +1,26 @@
+<main>
+<h1>Products List</h1>
+
+<% if(prods && prods.length > 0) { %>
+    <div class="product-container">
+    <% for(let product of prods) { %>
+        <article class="product-item">
+        <h2 class="product-title"><%= product.title %></h2>
+        <img class="product-image" src="<%= product.imageUrl %>" alt="<%= product.title %>">
+        <div class="product-desc">
+            <h3 class="product-price"><%= product.price %> $</h3>
+            <p class="product-desc-text"><%= product.description %></p>
+            <button class="product-item-btn">Add to cart</button>
+        </div>
+        </article>
+    <% } %>
+    </div>
+<% } else { %>
+    <h2 class="product-none">No products found!</h2>
+<% } %>
+
+</main>
+
+
+
+

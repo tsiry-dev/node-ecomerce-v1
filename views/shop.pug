@@ -1,0 +1,22 @@
+extends layouts/main-layout
+
+
+block content
+    main
+        h1 Products List 
+
+        if prods.length > 0
+            .product-container 
+                each product in prods 
+                        article.product-item 
+                            h2.product-title #{product.title} 
+                            img.product-image(src="https://i.pinimg.com/736x/8f/86/f0/8f86f03c1590da8c095122f46ee941fd.jpg", alt="")
+                            .product-desc 
+                                h3.product-price 456 $ 
+                                p.product-desc-text Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                button.product-item-btn Add to cart
+
+        else 
+            h2.product-none No products found!
+                        
+                        
